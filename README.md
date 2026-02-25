@@ -1,120 +1,24 @@
-# Virtual Compiler Implementation using Python
+# Create README content similar in style to the shown format
+
+readme_content = """
+🧠 Virtual Compiler Implementation using Python
+
 📌 Project Overview
+This project demonstrates the complete working of a compiler through its six major phases using Python.
+It simulates how a real compiler processes source code step-by-step and converts it into target machine instructions.
 
-This project presents a simplified implementation of a compiler using Python.
-It demonstrates how a high-level source program is processed step by step through all the major phases of compilation.
-
-The purpose of this project is to understand the internal workflow of a compiler in a structured and practical manner. Each phase is implemented independently to clearly show its individual responsibility in the compilation process.
-
-🧠 Objective
-
-The main objective of this project is to:
-
-Understand the working of compiler phases
-
-Learn how source code is analyzed and transformed
-
-Implement theoretical compiler concepts using Python
-
-Simulate the transformation from source code to machine-level instructions
 
 🏗️ Compiler Phases Implemented
-1️⃣ Lexical Analysis
+1. Lexical Analysis
+2. Syntax Analysis
+3. Semantic Analysis
+4. Intermediate Code Generation
+5. Code Optimization
+6. Code Generation
 
-This phase scans the source code and converts it into tokens.
-Tokens include keywords, identifiers, operators, numbers, and separators.
 
-Example:
-
-int a = 5;
-
-Output:
-
-KEYWORD      : int
-IDENTIFIER   : a
-OPERATOR     : =
-NUMBER       : 5
-SEPARATOR    : ;
-2️⃣ Syntax Analysis
-
-This phase checks whether the sequence of tokens follows the defined grammar rules.
-It ensures that the structure of the statement is valid.
-
-Example:
-
-a = b + c
-
-Output:
-
-Syntax is VALID
-3️⃣ Semantic Analysis
-
-This phase performs logical validation such as:
-
-Checking if variables are declared before use
-
-Detecting redeclaration errors
-
-Ensuring correct variable usage
-
-Example:
-
-int a
-a = 10
-
-Output:
-
-Semantic Analysis Successful
-4️⃣ Intermediate Code Generation (ICG)
-
-This phase generates an intermediate representation of the code, typically in the form of Three Address Code (TAC).
-
-Example:
-
-a = b + c * d
-
-Output:
-
-t1 = c * d
-t2 = b + t1
-a = t2
-5️⃣ Code Optimization
-
-This phase improves the intermediate code by removing redundant operations and simplifying expressions wherever possible.
-
-Example:
-
-t1 = c * d
-t2 = b + t1
-a = t2
-
-Optimized Output:
-
-a = b + c * d
-6️⃣ Code Generation
-
-This final phase converts the optimized intermediate code into simple machine-like instructions.
-
-Supported Instructions:
-
-MOV
-
-ADD
-
-MUL
-
-SUB
-
-Example:
-
-t1 = c * d
-
-Output:
-
-MOV R1, c
-MUL R1, d
-MOV t1, R1
 📂 Project Structure
+
 Compiler-Design/
 │
 ├── Phase1_Lexical/
@@ -155,42 +59,124 @@ Compiler-Design/
 │
 └── README.md
 
-Each phase works independently and reads from its respective input file to generate output.
+
+🔵 Phase 1 – Lexical Analysis
+Converts source code into tokens such as keywords, identifiers, operators, numbers, and separators.
+
+Sample Input:
+int a = 5;
+
+Sample Output:
+KEYWORD     : int
+IDENTIFIER  : a
+OPERATOR    : =
+NUMBER      : 5
+SEPARATOR   : ;
+
+
+🔵 Phase 2 – Syntax Analysis
+Checks whether the given expression follows correct grammar rules.
+
+Grammar Used:
+identifier = identifier operator identifier
+
+Sample Input:
+a = b + c
+
+Sample Output:
+Syntax is VALID
+
+
+🔵 Phase 3 – Semantic Analysis
+Performs:
+• Variable declaration checking
+• Redeclaration detection
+• Usage before declaration detection
+
+Sample Input:
+int a
+a = 10
+
+Sample Output:
+Semantic Analysis Successful
+
+
+🔵 Phase 4 – Intermediate Code Generation (ICG)
+Generates Three Address Code (TAC).
+
+Sample Input:
+a = b + c * d
+
+Sample Output:
+t1 = c * d
+t2 = b + t1
+a = t2
+
+
+🔵 Phase 5 – Code Optimization
+Removes redundant temporary variables and simplifies expressions.
+
+Sample Input:
+t1 = c * d
+t2 = b + t1
+a = t2
+
+Sample Output:
+a = t2
+
+
+🔵 Phase 6 – Code Generation
+Generates simple target machine instructions.
+
+Instructions Used:
+• MOV
+• ADD
+• MUL
+
+Sample Input:
+t1 = c * d
+t2 = b + t1
+
+Sample Output:
+MOV R1, c
+MUL R1, d
+MOV t1, R1
+MOV R2, b
+ADD R2, t1
+MOV t2, R2
+
 
 ⚙️ Technologies Used
+• Python 3
+• Regular Expressions
+• File Handling
+• Compiler Design Concepts
 
-Python 3
-
-Regular Expressions
-
-File Handling
-
-Basic Parsing Techniques
-
-Core Compiler Design Concepts
 
 ▶️ How to Run
-
-Navigate to the required phase folder and execute:
+Navigate into any phase folder and run:
 
 python filename.py
 
-Each module processes its input file and generates the corresponding output file.
+Each phase reads from its respective input file and generates output accordingly.
+
 
 🎯 Learning Outcomes
+Through this project, we understand:
+• Tokenization
+• Grammar validation
+• Semantic checking
+• Three-address code generation
+• Code optimization
+• Target code generation
 
-Through this project, the following concepts are understood:
+This project demonstrates the internal working of a compiler in a simplified and structured manner.
+"""
 
-Tokenization process
+# Save as TXT using pypandoc as required
+import pypandoc
 
-Grammar validation
+output_path = "/mnt/data/Virtual_Compiler_README.txt"
+pypandoc.convert_text(readme_content, 'plain', format='md', outputfile=output_path, extra_args=['--standalone'])
 
-Semantic checking
-
-Three-address code generation
-
-Code optimization techniques
-
-Basic machine instruction generation
-
-This project provides a clear understanding of how a compiler transforms source code into executable instructions in a structured and systematic way.
+output_path
