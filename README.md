@@ -15,7 +15,7 @@ It simulates how a real compiler processes source code step-by-step and converts
 
 
 📂 Project Structure
-
+```
 Compiler-Design/
 │
 ├── Phase1_Lexical/
@@ -55,7 +55,7 @@ Compiler-Design/
 │   └── README.md
 │
 └── README.md
-
+```
 
 🔵 Phase 1 – Lexical Analysis
 Converts source code into tokens such as keywords, identifiers, operators, numbers, and separators.
