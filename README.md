@@ -1,7 +1,4 @@
-# Create README content similar in style to the shown format
-
-readme_content = """
-🧠 Virtual Compiler Implementation using Python
+# 🧠 Virtual Compiler Implementation using Python
 
 📌 Project Overview
 This project demonstrates the complete working of a compiler through its six major phases using Python.
